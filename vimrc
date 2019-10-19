@@ -1,7 +1,7 @@
 syntax on
 
-" Part1 Common Setting
-" 
+" Part-1: Common Setting
+" ############################################################ 
 set number
 set ruler
 set showmatch
@@ -13,7 +13,8 @@ else
     set t_Co=256
 endif
 
-" Part2 Key Mapping
+" Part-2: Key Mapping
+" ############################################################ 
 let mapleader=','
 inoremap <leader>w <Esc>:w<cr>
 inoremap jj <Esc>
@@ -25,7 +26,8 @@ noremap <C-j> <C-w>j
 map // :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
-" Part3 Vundle Management
+" Part-3: Vundle Management
+" ############################################################ 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -42,4 +44,15 @@ filetype plugin indent on     " required
 "" colorscheme molokai
 colorscheme space_vim_theme
 
+" Part-4: Function
+" ############################################################ 
+"" Show file name in vim
+set laststatus=2      " 总是显示状态栏
+function! CurDir()
+	let curdir = substitute(getcwd(), $HOME, "~", "g")
+	return curdir
+endfunction
+set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \
 
+
+"//EOF
