@@ -18,7 +18,7 @@ inoremap jj <Esc>
 "" noremap <c-k> <c-w>k
 "" noremap <c-j> <c-w>j
 "" NerdTree config
-map ll :NERDTreeToggle<CR>
+map // :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 " Part3 Vundle Management
