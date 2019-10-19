@@ -6,17 +6,21 @@ set number
 set ruler
 set showmatch
 set hlsearch
-set background=dark
-set t_Co=256
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+    set t_Co=256
+endif
 
 " Part2 Key Mapping
 let mapleader=','
 inoremap <leader>w <Esc>:w<cr>
 inoremap jj <Esc>
-"" noremap <c-h> <c-w>h
-"" noremap <c-l> <c-w>l
-"" noremap <c-k> <c-w>k
-"" noremap <c-j> <c-w>j
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+noremap <C-k> <C-w>k
+noremap <C-j> <C-w>j
 "" NerdTree config
 map // :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
@@ -28,11 +32,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'tomasr/molokai'       " molokai
+Plugin 'liuchengxu/space-vim-theme'
 Plugin 'godlygeek/tabular' 
 Plugin 'plasticboy/vim-markdown' 
-Plugin 'scrooloose/nerdtree' "NerdTree
+Plugin 'scrooloose/nerdtree'  " NerdTree
 call vundle#end()             " required
 filetype plugin indent on     " required
 
-colorscheme molokai
-"" colorscheme solarized
+"" colorscheme molokai
+colorscheme space_vim_theme
+
+
