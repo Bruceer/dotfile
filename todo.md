@@ -1,1 +1,1 @@
-[] ctrl+h/j/k/l fails
+[ ] ctrl+h/j/k/l fails
